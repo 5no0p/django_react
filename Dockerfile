@@ -1,3 +1,11 @@
+FROM node:lts as build-deps
+WORKDIR /frontend
+COPY ./frontend/react_app/package.json ./frontend/react_app/yarn.lock ./
+RUN yarn
+COPY ./frontend /frontend
+RUN yarn build
+
+
 FROM python:3.8
 
 
@@ -7,26 +15,17 @@ WORKDIR /app/backend
 COPY ./backend/requirements.txt /app/backend/
 RUN pip3 install --upgrade pip -r requirements.txt
 
-# Install JS dependencies
-WORKDIR /app/frontend
 
-COPY ./frontend/react_app/package.json ./frontend/react_app/yarn.lock /app/frontend/
-RUN $HOME/.yarn/bin/yarn install
 
 # Add the rest of the code
 COPY . /app/
 
-# Build static files
-RUN $HOME/.yarn/bin/yarn build
 
-# Have to move all static files other than index.html to root/
-# for whitenoise middleware
+COPY --from=build-deps /frontend/build /app/frontend/build
+
 WORKDIR /app/frontend/build
-
 RUN mkdir root && mv *.ico *.js *.json root
-
-# Collect static files
-RUN mkdir /app/backend/staticfiles
+RUN mkdir /app/staticfiles
 
 WORKDIR /app
 
