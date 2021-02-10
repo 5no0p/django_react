@@ -2,7 +2,7 @@ FROM node:lts as build-deps
 WORKDIR /frontend
 COPY ./frontend/react_app/package.json ./frontend/react_app/yarn.lock ./
 RUN yarn
-COPY ./frontend /frontend
+COPY ./frontend/react_app /frontend
 RUN yarn build
 
 
