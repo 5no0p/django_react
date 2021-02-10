@@ -33,8 +33,6 @@ WORKDIR /app
 # Be sure to add a real SECRET_KEY config variable in Heroku.
 RUN DJANGO_SETTINGS_MODULE=mainapp.settings.local_settings 
   
-RUN adduser -D 5no0p
-USER 5no0p 
 
 EXPOSE $PORT
 
