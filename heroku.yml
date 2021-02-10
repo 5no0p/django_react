@@ -1,10 +1,14 @@
+setup:
+ addons:
+   - plan: heroku-postgresql
 build:
   docker:
     web: Dockerfile
-run:
-  web: gunicorn mainapp.wsgi:application --bind 0.0.0.0:$PORT
+  config:
+    REQUIREMENTS_FILENAME: heroku.yml
 release:
   image: web
   command:
-    - npm run build
-    - python manage.py collectstatic --noinput
+    -  backend/entrypoint.sh   
+run:
+  web: gunicorn backend/django_app/mainapp.wsgi:application --bind 0.0.0.0:$PORT
