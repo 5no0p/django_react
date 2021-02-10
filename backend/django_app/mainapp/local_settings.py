@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #################################################################
@@ -39,6 +40,11 @@ if DJANGO_ENV == 'development' or DJANGO_ENV == 'production':
             "PORT": os.environ.get("DB_PORT", "5432"),
         }
     }
+
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+    DATABASES['default'].update(db_from_env)
+
 else:
     SECRET_KEY = 'localsecret'
     DEBUG = True
@@ -66,3 +72,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
