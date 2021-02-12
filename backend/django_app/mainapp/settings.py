@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 <<<<<<< HEAD
 import dj_database_url
+import django_heroku
+django_heroku.settings(locals())
 =======
 >>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
 
@@ -30,7 +32,7 @@ SECRET_KEY = '9-yitn09*pi)q08z7r*d!d341uh+$a)ck-9^jezk=k67t*1)#^'
 DEBUG = True
 
 <<<<<<< HEAD
-ALLOWED_HOSTS = ['blog-test-009.herokuapp.com']
+ALLOWED_HOSTS = ['blog-test-009.herokuapp.com',]
 =======
 ALLOWED_HOSTS = []
 >>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
@@ -96,17 +98,6 @@ WSGI_APPLICATION = 'mainapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-<<<<<<< HEAD
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-=======
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
->>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
-    }
-}
 
 
 <<<<<<< HEAD
@@ -160,7 +151,6 @@ STATIC_URL = '/static/'
     ##  IMPORT LOCAL SETTINGS ##
 #########################################
 <<<<<<< HEAD
-DATABASES = { 'default' : dj_database_url.config()}
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 =======
