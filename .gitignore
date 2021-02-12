@@ -1,7 +1,10 @@
 ### Django ###
 **/env/*
 **/localPythonEnv/*
+<<<<<<< HEAD
 **/local_settings/*
+=======
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
 /.vscode
 .vscode
 *.log
@@ -10,7 +13,7 @@
 __pycache__/
 #**/migrations/*
 **/.ipynb_checkpoints/*
-#local_settings.py
+local_settings.py
 #db.sqlite3
 #/media/uploads
 #/media/profile_pics

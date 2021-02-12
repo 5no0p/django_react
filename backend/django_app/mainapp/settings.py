@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
 import dj_database_url
+=======
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -26,7 +29,11 @@ SECRET_KEY = '9-yitn09*pi)q08z7r*d!d341uh+$a)ck-9^jezk=k67t*1)#^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['blog-test-009.herokuapp.com']
+=======
+ALLOWED_HOSTS = []
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
 
 
 # Application definition
@@ -38,8 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
 	
 	'mainapp',
+=======
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
 
     'rest_framework',
     'rest_framework.authtoken',
@@ -87,17 +97,26 @@ WSGI_APPLICATION = 'mainapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
+=======
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
     }
 }
 
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -140,9 +159,12 @@ STATIC_URL = '/static/'
 #########################################
     ##  IMPORT LOCAL SETTINGS ##
 #########################################
+<<<<<<< HEAD
 DATABASES = { 'default' : dj_database_url.config()}
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+=======
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
 
 try:
     from .local_settings import * 

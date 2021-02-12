@@ -31,6 +31,7 @@ WORKDIR /app
 
 # SECRET_KEY is only included here to avoid raising an error when generating static files.
 # Be sure to add a real SECRET_KEY config variable in Heroku.
+<<<<<<< HEAD
 RUN DJANGO_SETTINGS_MODULE=mainapp.settings 
 RUN chmod +x /app/backend/entrypoint.sh
 RUN useradd -m myuser
@@ -38,3 +39,11 @@ USER myuser
 
 EXPOSE $PORT
 
+=======
+RUN DJANGO_SETTINGS_MODULE=mainapp.settings.local_settings 
+  
+
+EXPOSE $PORT
+
+CMD gunicorn backend/django_app/manage.py runserver 0.0.0.0:$PORT
+>>>>>>> b6a43a2105f81481ff462e234bb19aa4fd37e14a
